@@ -17,6 +17,7 @@ def compile_jsx(file):
 
 
 def walk(dir):
+    # TODO: check if dir exists
     jsx_bundle = ""
     for d, dirs, files in os.walk(dir):
         for f in files:
@@ -28,6 +29,7 @@ def walk(dir):
 
 
 def write_bundles(jsx_bundle, bundle_file):
+    # TODO: check that bundle is not empty
     with open(bundle_file, "w") as f:
         f.write(jsx_bundle)
 
@@ -36,3 +38,4 @@ if __name__ == "__main__":
     project_dir, bundle_file = parse_args()
     jsx_bundle = walk(project_dir)
     write_bundles(jsx_bundle, bundle_file)
+    
